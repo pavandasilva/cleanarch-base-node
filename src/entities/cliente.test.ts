@@ -31,4 +31,22 @@ describe("Client Entity", () => {
 
     expect(() => Client.create(clientPortFakeEmailInvalid)).toThrow('Invalid phone');
   })
+
+  it("Should return cellphone invalid error", () => {
+    const clientPortFakeEmailInvalid = {
+      ...clientPortFake,
+      cellphone: '32122'
+    }
+
+    expect(() => Client.create(clientPortFakeEmailInvalid)).toThrow('Invalid cellphone');
+  })
+
+  it("Should return cellphone(whatsapp) invalid error", () => {
+    const clientPortFakeEmailInvalid = {
+      ...clientPortFake,
+      whatsapp: '32122'
+    }
+
+    expect(() => Client.create(clientPortFakeEmailInvalid)).toThrow('Invalid cellphone');
+  })
 })

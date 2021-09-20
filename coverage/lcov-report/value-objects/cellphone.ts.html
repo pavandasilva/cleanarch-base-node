@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.48% </span>
+                <span class="strong">58.62% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/29</span>
+                <span class='fraction'>17/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.48% </span>
+                <span class="strong">58.62% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/29</span>
+                <span class='fraction'>17/29</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,9 +94,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -106,10 +106,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -121,11 +121,11 @@
 <span class="cstat-no" title="statement not covered" >    Object.freeze(this)</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-  static <span class="fstat-no" title="function not covered" >create(cellPhone: string): CellPhone {</span>
-<span class="cstat-no" title="statement not covered" >    if (!validateCellPhone(cellPhone)) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error('Invalid cellphone')</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
+  static create(cellPhone: string): CellPhone {
+    if (!validateCellPhone(cellPhone)) {
+      throw new Error('Invalid cellphone')
+    }
+<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span>
 <span class="cstat-no" title="statement not covered" >    return new CellPhone(cellPhone)</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
@@ -134,11 +134,11 @@
 <span class="cstat-no" title="statement not covered" >  }</span>
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export function validateCellPhone(cellPhone: string): boolean {</span></span>
-<span class="cstat-no" title="statement not covered" >  if (cellPhone.length !== 11) {</span>
-<span class="cstat-no" title="statement not covered" >    return false</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
+export function validateCellPhone(cellPhone: string): boolean {
+  if (cellPhone.length !== 11) {
+    return false
+  }
+<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span>
 <span class="cstat-no" title="statement not covered" >  const re = /^[0-9]/;</span>
 <span class="cstat-no" title="statement not covered" >  return re.test(String(cellPhone));</span>
 <span class="cstat-no" title="statement not covered" >}</span></pre></td></tr></table></pre>
@@ -148,7 +148,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Sep 19 2021 21:20:21 GMT-0300 (Horário Padrão de Brasília)
+                at Sun Sep 19 2021 21:21:58 GMT-0300 (Horário Padrão de Brasília)
             </div>
         </div>
         <script src="../prettify.js"></script>

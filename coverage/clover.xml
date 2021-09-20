@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632097221478" clover="3.2.0">
-  <project timestamp="1632097221478" name="All files">
-    <metrics statements="188" coveredstatements="133" conditionals="9" coveredconditionals="6" methods="14" coveredmethods="6" elements="211" coveredelements="145" complexity="0" loc="188" ncloc="188" packages="3" files="6" classes="6"/>
+<coverage generated="1632097318760" clover="3.2.0">
+  <project timestamp="1632097318760" name="All files">
+    <metrics statements="188" coveredstatements="146" conditionals="14" coveredconditionals="9" methods="14" coveredmethods="9" elements="216" coveredelements="164" complexity="0" loc="188" ncloc="188" packages="3" files="6" classes="6"/>
     <package name="entities">
       <metrics statements="55" coveredstatements="35" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="client.ts" path="D:\desenvolvimento\food-api\src\entities\client.ts">
@@ -117,9 +117,9 @@
       </file>
     </package>
     <package name="value-objects">
-      <metrics statements="86" coveredstatements="51" conditionals="8" coveredconditionals="5" methods="12" coveredmethods="5"/>
+      <metrics statements="86" coveredstatements="64" conditionals="13" coveredconditionals="8" methods="12" coveredmethods="8"/>
       <file name="cellphone.ts" path="D:\desenvolvimento\food-api\src\value-objects\cellphone.ts">
-        <metrics statements="29" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <metrics statements="29" coveredstatements="17" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -128,11 +128,11 @@
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
@@ -141,11 +141,11 @@
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="27" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
@@ -185,22 +185,22 @@
         <line num="3" count="1" type="stmt"/>
       </file>
       <file name="phone.ts" path="D:\desenvolvimento\food-api\src\value-objects\phone.ts">
-        <metrics statements="29" coveredstatements="17" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="2"/>
+        <metrics statements="29" coveredstatements="23" conditionals="5" coveredconditionals="3" methods="4" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
@@ -208,13 +208,13 @@
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
       </file>
     </package>
   </project>
