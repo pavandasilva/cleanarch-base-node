@@ -1,4 +1,4 @@
-import { clientPortFake } from "../usecases/ports/client.fake"
+import { clientPortFake } from "../use-cases/ports/client.fake"
 import { Client } from "./client"
 
 describe("Client Entity", () => {
@@ -21,5 +21,14 @@ describe("Client Entity", () => {
     }
 
     expect(() => Client.create(clientPortFakeEmailInvalid)).toThrow('Invalid email');
+  })
+
+  it("Should return phone invalid error", () => {
+    const clientPortFakeEmailInvalid = {
+      ...clientPortFake,
+      phone: '32122'
+    }
+
+    expect(() => Client.create(clientPortFakeEmailInvalid)).toThrow('Invalid phone');
   })
 })

@@ -1,7 +1,7 @@
 import { v4 } from 'uuid'
-import { ClientRepository } from "../usecases/interfaces";
-import { ClientPort } from "../usecases/ports";
-import { clientPortFakeList } from "../usecases/ports/client.fake";
+import { ClientRepository } from "../use-cases/interfaces";
+import { ClientPort } from "../use-cases/ports";
+import { clientPortFakeList } from "../use-cases/ports/client.fake";
 
 export class ClientRepositoryMock implements ClientRepository {
   async getById(id: string): Promise<ClientPort> {

@@ -1,4 +1,4 @@
-import { ClientPort } from "../usecases/ports"
+import { ClientPort } from "../use-cases/ports"
 import { CellPhone } from "../value-objects"
 import { Email } from "../value-objects/email"
 import { Phone } from "../value-objects/phone"
