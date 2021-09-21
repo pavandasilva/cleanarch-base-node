@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for entities/client.ts</title>
+    <title>Code coverage report for repositories/client-memory.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">entities</a> client.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">repositories</a> client-memory.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">92.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>54/54</span>
+                <span class='fraction'>52/56</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">92.86% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>54/54</span>
+                <span class='fraction'>52/56</span>
             </div>
         
             
@@ -110,7 +110,9 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -151,71 +153,75 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { CellPhone } from "../value-objects"
-import { Email } from "../value-objects/email"
-import { Phone } from "../value-objects/phone"
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Client } from '../entities';
+import { ClientRepository } from "../use-cases/interfaces";
+import faker from 'faker'
+import { ClientDatabaseMemoryAdapter } from '../adapters';
 &nbsp;
-export class Client {
-  public readonly id: string | undefined
-  public readonly title: string
-  public readonly slogan: string
-  public readonly address: string
-  public readonly email: Email
-  public readonly phone: Phone
-  public readonly cellphone: CellPhone
-  public readonly whatsapp: CellPhone
+export type ClientMemoryDataModel = {
+  id?: number,
+  address: string,
+  cellphone: string,
+  phone: string,
+  whatsapp: string,
+  email: string,
+  slogan: string,
+  title: string
+}
 &nbsp;
-  private constructor(
-    id: string | undefined,
-    title: string,
-    slogan: string,
-    address: string,
-    email: Email,
-    phone: Phone,
-    cellphone: CellPhone,
-    whatsapp: CellPhone
-  ) {
-    this.id = id
-    this.title = title
-    this.slogan = slogan
-    this.address = address
-    this.email = email
-    this.phone = phone
-    this.cellphone = cellphone
-    this.whatsapp = whatsapp
+export const clientDataModelFakeList: ClientMemoryDataModel[] = [
+  {
+    id: faker.datatype.number(),
+    address: faker.address.streetName(),
+    cellphone: faker.phone.phoneNumber('###########'),
+    phone: faker.phone.phoneNumber('##########'),
+    whatsapp: faker.phone.phoneNumber('###########'),
+    email: faker.internet.email(),
+    slogan: faker.random.words(4),
+    title: faker.random.words(1)
+  },
+  {
+    id: faker.datatype.number(),
+    address: faker.address.streetName(),
+    cellphone: faker.phone.phoneNumber('###########'),
+    phone: faker.phone.phoneNumber('##########'),
+    whatsapp: faker.phone.phoneNumber('###########'),
+    email: faker.internet.email(),
+    slogan: faker.random.words(4),
+    title: faker.random.words(1)
+  }
+]
 &nbsp;
-    Object.freeze(this)
+export class ClientRepositoryMemory implements ClientRepository {
+  async getById(id: string): Promise&lt;Client | undefined&gt; {
+    const [client] = clientDataModelFakeList.filter(client =&gt; String(client.id) === id)
+    if (!client) {
+      return undefined
+    }
+&nbsp;
+    const { email, phone, cellphone, whatsapp, title, slogan, address } = client
+    return ClientDatabaseMemoryAdapter.createEntity(email, phone, cellphone, whatsapp, title, slogan, address, id)
   }
 &nbsp;
-  static create(email: string, phone: string, cellphone: string, whatsapp: string, title: string, slogan: string, address: string, id?: string) {
-    const nEmail = Email.create(email)
-    const nPhone = Phone.create(phone)
-    const nCellPhone = CellPhone.create(cellphone)
-    const nWhatsapp = CellPhone.create(whatsapp)
-&nbsp;
-    return new Client(
-      id,
-      title,
-      slogan,
-      address,
-      nEmail,
-      nPhone,
-      nCellPhone,
-      nWhatsapp
-    )
-  }
+<span class="fstat-no" title="function not covered" >  async save(client: Client): Promise&lt;string | undefined&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const clientDataModel = ClientDatabaseMemoryAdapter.createModelData(client)</span>
+<span class="cstat-no" title="statement not covered" >    clientDataModelFakeList.push(clientDataModel)</span>
+<span class="cstat-no" title="statement not covered" >    return String(client.id)</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

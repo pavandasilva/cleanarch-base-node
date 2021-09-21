@@ -1,47 +1,58 @@
 import { v4 } from 'uuid'
-import { ClientRepositoryMock } from "../../repositories"
+import { clientDataModelFakeList, ClientRepositoryMemory } from "../../repositories"
 import { GetClient } from "./get-client"
-import { clientPortFakeList } from "../ports/client.fake"
+import { ClientRepository } from '../interfaces'
+
+interface MakeSutResp {
+  sut: GetClient,
+  clientRepositoryStub: ClientRepository,
+}
+
+const makeSut = (): MakeSutResp => {
+  const clientRepositoryStub = new ClientRepositoryMemory()
+  const sut = new GetClient(clientRepositoryStub)
+
+  return {
+    sut,
+    clientRepositoryStub,
+  }
+}
 
 describe("getClient usecase", () => {
   it("Should return a client", async () => {
-    const clientRepository = new ClientRepositoryMock()
-    const getClient = new GetClient(clientRepository)
-    const { id, title, slogan, address, email, phone, cellphone, whatsapp } = clientPortFakeList[0]
-    const resp = await getClient.execute(id as string)
-    expect(resp?.id).toBe(id)
+    const { sut } = makeSut()
+    const { id, title, slogan, address, email, phone, cellphone, whatsapp } = clientDataModelFakeList[0]
+    const resp = await sut.execute(String(id))
+    expect(resp?.id).toBe(String(id))
     expect(resp?.title).toBe(title)
     expect(resp?.slogan).toBe(slogan)
     expect(resp?.address).toBe(address)
-    expect(resp?.email.getValue()).toBe(email.toLowerCase())
-    expect(resp?.phone.getValue()).toBe(phone)
-    expect(resp?.cellphone.getValue()).toBe(cellphone)
-    expect(resp?.whatsapp.getValue()).toBe(whatsapp)
+    expect(resp?.email).toBe(email.toLowerCase())
+    expect(resp?.phone).toBe(phone)
+    expect(resp?.cellphone).toBe(cellphone)
+    expect(resp?.whatsapp).toBe(whatsapp)
   })
 
   it("Should return undefined", async () => {
-    const clientRepository = new ClientRepositoryMock()
-    const getClient = new GetClient(clientRepository)
-    const resp = await getClient.execute(v4())
+    const { sut } = makeSut()
+    const resp = await sut.execute(v4())
     expect(resp).toBeUndefined()
   })
 
   it("Should pass the correct id to repository", async () => {
-    const clientRepository = new ClientRepositoryMock()
-    const getClient = new GetClient(clientRepository)
-    const clientRepositorySpy = jest.spyOn(clientRepository, 'getById')
-    const id = clientPortFakeList[0].id
-    await getClient.execute(id as string)
+    const { sut, clientRepositoryStub } = makeSut()
+    const clientRepositorySpy = jest.spyOn(clientRepositoryStub, 'getById')
+    const id = v4()
+    await sut.execute(id)
     expect(clientRepositorySpy).toHaveBeenCalledWith(id)
   })
 
   it("Should return exception if it occurs in the repository", async () => {
-    const clientRepository = new ClientRepositoryMock()
-    const clientRepositorySpy = jest.spyOn(clientRepository, 'getById')
+    const { sut, clientRepositoryStub } = makeSut()
+    const clientRepositorySpy = jest.spyOn(clientRepositoryStub, 'getById')
     const errorMessage = 'error message'
     clientRepositorySpy.mockImplementationOnce(() => { throw new Error(errorMessage) })
-    const getClient = new GetClient(clientRepository)
-    const promise = getClient.execute(v4())
+    const promise = sut.execute(v4())
     await expect(promise).rejects.toThrowError(errorMessage)
   })
 })

@@ -1,5 +1,5 @@
-import { Client } from "../../entities";
 import { ClientRepository } from "../interfaces/repository/client-repository";
+import { ClientPortOutput } from "../ports";
 
 export class GetClient {
   private readonly clientRepository;
@@ -8,14 +8,24 @@ export class GetClient {
     this.clientRepository = clientRepository
   }
 
-  async execute(clienteId: string): Promise<Client | undefined> {
-    const data = await this.clientRepository.getById(clienteId)
+  async execute(clienteId: string): Promise<ClientPortOutput | undefined> {
+    const client = await this.clientRepository.getById(clienteId)
 
-    if (!data) {
+    if (!client) {
       return undefined
     }
 
-    const client = Client.create(data)
-    return client
+    const output: ClientPortOutput = {
+      id: client.id,
+      address: client.address,
+      cellphone: client.cellphone.getValue(),
+      email: client.email.getValue(),
+      phone: client.phone.getValue(),
+      slogan: client.slogan,
+      title: client.title,
+      whatsapp: client.whatsapp.getValue(),
+    }
+
+    return output
   }
 }

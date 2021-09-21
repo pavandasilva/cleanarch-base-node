@@ -1,6 +1,6 @@
 import { Client } from "../../entities";
 import { ClientRepository } from "../interfaces/repository/client-repository";
-import { ClientPort } from "../ports";
+import { ClientInputPort } from "../ports";
 
 export class AddClient {
   private readonly clientRepository;
@@ -9,9 +9,10 @@ export class AddClient {
     this.clientRepository = clientRepository
   }
 
-  async execute(data: ClientPort): Promise<Client> {
-    const result = await this.clientRepository.save(data)
-    const client = Client.create(result)
-    return client
+  async execute(input: ClientInputPort): Promise<string | undefined> {
+    const { id, email, title, address, cellphone, phone, slogan, whatsapp } = input
+    const client = Client.create(email, phone, cellphone, whatsapp, title, slogan, address, id)
+    const result = await this.clientRepository.save(client)
+    return result
   }
 }

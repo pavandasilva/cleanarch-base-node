@@ -1,4 +1,3 @@
-import { ClientPort } from "../use-cases/ports"
 import { CellPhone } from "../value-objects"
 import { Email } from "../value-objects/email"
 import { Phone } from "../value-objects/phone"
@@ -35,21 +34,21 @@ export class Client {
     Object.freeze(this)
   }
 
-  static create(data: ClientPort) {
-    const email = Email.create(data.email)
-    const phone = Phone.create(data.phone)
-    const cellPhone = CellPhone.create(data.cellphone)
-    const whatsapp = CellPhone.create(data.whatsapp)
+  static create(email: string, phone: string, cellphone: string, whatsapp: string, title: string, slogan: string, address: string, id?: string) {
+    const nEmail = Email.create(email)
+    const nPhone = Phone.create(phone)
+    const nCellPhone = CellPhone.create(cellphone)
+    const nWhatsapp = CellPhone.create(whatsapp)
 
     return new Client(
-      data.id,
-      data.title,
-      data.slogan,
-      data.address,
-      email,
-      phone,
-      cellPhone,
-      whatsapp
+      id,
+      title,
+      slogan,
+      address,
+      nEmail,
+      nPhone,
+      nCellPhone,
+      nWhatsapp
     )
   }
 }

@@ -1,1 +1,1 @@
-export * from './client.mock'
+export * from './client-memory'
